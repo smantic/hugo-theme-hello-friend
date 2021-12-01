@@ -3,9 +3,10 @@
   <head>
     {{ block "title" . }}
       <title>
-        {{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} —
-        {{ . }}{{ end }}{{ else }}{{ .Title }} ::
-        {{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}
+        {{ if .IsHome }}{{ $.Site.Title }}{{ with "" }}
+        {{ . }}{{ end }}{{ else }}
+        {{ $.Site.Title }} - {{ .Title }}  {{ with $.Site.Params.Subtitle }} 
+        {{ end }}{{ end }}
       </title>
     {{ end }}
     {{ partial "head.html" . }}
